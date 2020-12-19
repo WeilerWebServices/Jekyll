@@ -1,0 +1,8 @@
+inherit_from: .rubocop_todo.yml
+
+Style/GlobalVars:
+  AllowedVariables: [$GSL]
+
+Naming/MethodName:
+  Exclude:
+    - lib/classifier-reborn/extensions/vector.rb

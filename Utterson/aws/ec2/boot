@@ -1,0 +1,35 @@
+#!/bin/bash
+# chkconfig: 2345 20 80
+
+. /etc/init.d/functions
+
+checkloop() {
+	cd /home/ec2-user/Utterson
+	git pull
+	while ( sudo -u ec2-user -Hi -- /home/ec2-user/Utterson/aws/ec2/doCheck ); do
+		echo "Checking for more messages."
+	done
+	local USERS=$( who | wc -l )
+	if (( USERS = 0 )); then
+		wall "Shutting down."
+		shutdown -h now
+	fi
+}
+
+start() {
+	checkloop &
+}
+
+case "$1" in
+    start)
+       start
+       ;;
+    stop)
+       ;;
+    restart)
+       ;;
+    status)
+       ;;
+    *)
+       echo "Usage: $0 {start|stop|status|restart}"
+esac

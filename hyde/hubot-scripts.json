@@ -1,0 +1,11 @@
+[
+  "brb.coffee",
+  "chm.coffee",
+  "excuse.coffee",
+  "github-commit-link.coffee",
+  "github-issues.coffee",
+  "github-issue-link.coffee",
+  "github-pulls.coffee",
+  "redis-brain.coffee",
+  "zen.coffee"
+]

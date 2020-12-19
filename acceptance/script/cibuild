@@ -1,0 +1,25 @@
+#!/bin/bash -xe
+
+# Tiny site to get the ball rolling.
+time script/build-repo https://github.com/parkr/stuff
+
+# Ben's site is great at catching weird bugs.
+# The `retlab` theme has 'github-pages' listed as a runtime_dependency which
+#   can mess with our bundle environment.
+# time script/build-repo https://github.com/benbalter/benbalter.github.com
+
+# Frank's blog made use of many plugins
+# However, the site activates various plugins via Bundler only
+# time script/build-repo https://github.com/DirtyF/frank.taillandier.me
+
+# @mmistakes is one of our most prolific theme writers & people love this theme.
+time script/build-repo https://github.com/mmistakes/minimal-mistakes
+
+# Something with plenty of non-ASCII characters.
+time script/build-repo https://github.com/Gaohaoyang/gaohaoyang.github.io
+
+# Add this site because the author said it takes 15 minutes to build.
+time script/build-repo https://github.com/grantmakers/grantmakers.github.io
+
+# Docker Documentation, because whales are heavy.
+time script/build-repo https://github.com/docker/docker.github.io

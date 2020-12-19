@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -e
+
+. script/provider-credentials
+
+octodns validate \
+  --config-file ./config/test.yaml \
+  --debug

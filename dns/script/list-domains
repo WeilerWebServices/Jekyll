@@ -1,0 +1,11 @@
+#!/bin/bash
+
+. script/provider-credentials
+
+cwd="$(pwd)"
+
+docker run -it --rm \
+  -v "$cwd":"$cwd" \
+  -w "$cwd" \
+  "$DOCKER_IMAGE" \
+  python "$cwd/script/list-domains.py"

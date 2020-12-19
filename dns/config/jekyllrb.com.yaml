@@ -1,0 +1,109 @@
+---
+? ''
+: - octodns:
+      cloudflare:
+        proxied: false
+    ttl: 600
+    type: ALIAS
+    value: jekyll.github.io.
+  - ttl: 600
+    type: MX
+    values:
+    - exchange: mxa.mailgun.org.
+      preference: 10
+    - exchange: mxb.mailgun.org.
+      preference: 10
+  - ttl: 600
+    type: TXT
+    value: v=spf1 include:spf.messagingengine.com include:mailgun.org include:_hostedspf.discourse.org
+      ~all
+_github-challenge-jekyll:
+  ttl: 600
+  type: TXT
+  value: de13dd597c
+dashboard:
+  octodns:
+    cloudflare:
+      proxied: true
+  ttl: 1
+  type: CNAME
+  value: jekyll-dashboard.herokuapp.com.
+discourse._domainkey:
+  ttl: 600
+  type: TXT
+  value: v=DKIM1\; k=rsa\; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCojtk3fqF69pT6SZcIwoYzjQfdOBTFK7AOyxEGBwHLZ+xqwQQlVgfL6xFZ7FhCYAczkGTCjdChX/qf6dg4LrtXrb+apymj9WpLOwPir6P5Mv9FH3t3BgrQeyyCLhAHqDrUk+kU3B2z1uva3oWw3qN9MLZaX8HjR13w9ywVEgzjpQIDAQAB
+email:
+  ttl: 1
+  type: CNAME
+  value: mailgun.org.
+fm1._domainkey:
+  ttl: 600
+  type: TXT
+  value: fm1.jekyllrb.com.dkim.fmhosted.com
+fm2._domainkey:
+  ttl: 600
+  type: TXT
+  value: fm2.jekyllrb.com.dkim.fmhosted.com
+fm3._domainkey:
+  ttl: 600
+  type: TXT
+  value: fm3.jekyllrb.com.dkim.fmhosted.com
+import:
+  octodns:
+    cloudflare:
+      proxied: false
+  ttl: 600
+  type: CNAME
+  value: jekyll.github.io.
+mail:
+  octodns:
+    cloudflare:
+      proxied: true
+  ttl: 1
+  type: A
+  values:
+  - 66.111.4.147
+  - 66.111.4.148
+mesmtp._domainkey:
+  ttl: 600
+  type: TXT
+  value: mesmtp.jekyllrb.com.dkim.fmhosted.com
+pic._domainkey:
+  ttl: 600
+  type: TXT
+  value: k=rsa\; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCeXUl1vOMvfMJWYoNylrDLYOeSNadGsxPJEgc0iYgAVbKhxZXBbiNxlt6lhziENYchiUgPNC2JVK9izmXVLo5uizgBVWaYrLOLFiy4Kb4ewL8uEl2cBlWsuFSmOa+6zx4dErmGXLf4hie0blQ/g1rgg11ll34+1XpGYTjsIDXbHwIDAQAB
+talk:
+- octodns:
+    cloudflare:
+      proxied: false
+  ttl: 1
+  type: CNAME
+  value: jekyllrb.hosted-by-discourse.com.
+teams:
+  octodns:
+    cloudflare:
+      proxied: true
+  ttl: 1
+  type: CNAME
+  value: symmetrical-bee-r6fywfpzwjn2o8rl9lgt3lyn.herokudns.com.
+utterson:
+  octodns:
+    cloudflare:
+      proxied: true
+  ttl: 1
+  type: CNAME
+  value: d34iuq4h6fd9zb.cloudfront.net.
+www:
+  octodns:
+    cloudflare:
+      proxied: true
+  ttl: 1
+  type: CNAME
+  value: jekyll.github.io.
+www.teams:
+  octodns:
+    cloudflare:
+      proxied: true
+  ttl: 1
+  type: CNAME
+  value: symmetrical-bee-r6fywfpzwjn2o8rl9lgt3lyn.herokudns.com.

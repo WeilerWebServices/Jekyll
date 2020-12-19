@@ -1,0 +1,8 @@
+# pack-refs with: peeled fully-peeled sorted 
+fbf4edcb6f9e8acc63ff93eb6ef2dbb52208dbd9 refs/remotes/origin/StringValue
+27bc44e9438585155feeec174238fcff48fb80bd refs/remotes/origin/log-extra-info
+0c50bfafcfac821874544dcc1ebf3f5dfc6884ce refs/remotes/origin/master
+d1d4f8751acb1cd81f14f233ac8dbf76120ef727 refs/remotes/origin/multiple-pr
+595e2f0b803b1594d89f91f6d21236ce041defc2 refs/remotes/origin/regression
+1a5b2a1a7fdd07abc8f3020f8a7e2f90f8d6b309 refs/remotes/origin/rubocop-jekyll
+8f7a869b144e409437d5085fa82140798a9d9f92 refs/remotes/origin/template

@@ -1,0 +1,44 @@
+title: "Jekyll directory"
+description: "Community-built themes and plugins to level up your Jekyll experience"
+repository: https://github.com/jekyll/directory
+url: https://jekyll.github.io
+baseurl: /directory
+lang: "en_US"
+
+plugins:
+  - jekyll-sitemap
+  - jemoji
+
+collections:
+  plugins:
+    output: true
+  themes:
+    output: true
+
+defaults:
+  - scope:
+      type: plugins
+    values:
+      permalink: /plugins/:title/ # DO NOT CHANGE THIS DEFAULT
+      layout: plugin              # DO NOT CHANGE THIS DEFAULT
+      type: rubygems              # DO NOT CHANGE THIS DEFAULT
+
+  - scope:
+      type: themes
+    values:
+      permalink: /themes/:title/  # DO NOT CHANGE THIS DEFAULT
+      layout: theme               # DO NOT CHANGE THIS DEFAULT
+      type: rubygems              # DO NOT CHANGE THIS DEFAULT
+
+sass:
+  style: compressed
+
+exclude:
+  - CONTRIBUTING.md
+  - Gemfile*
+  - History.markdown
+  - Rakefile
+  - README.md
+  - script
+  - spec
+  - vendor

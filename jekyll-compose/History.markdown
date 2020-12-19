@@ -1,0 +1,135 @@
+## 0.12.0 / 2019-12-28
+
+### Minor Enhancements
+
+  * `compose` command for collections (#103)
+  * Add `rename` command to change titles and filenames (#101)
+  * Support a custom timestamp format in YAML front matter on posts (#98)
+  * Include VISUAL as an editor option (#102)
+  * Prepare for collections support with default front matter configuration (#104)
+
+### Bug Fixes
+
+  * Removing source option for commands as it is appearing twice. (#100)
+
+### Development Fixes
+
+  * ci: test with Jekyll 4.0 (#99)
+  * Extract logic for computing default front matter (#105)
+  * Refactoring to remove some rubocop warnings and for consistency (#106)
+
+## 0.11.0 / 2019-04-05
+
+### Minor Enhancements
+
+  * Add/Remove Dates When Publishing/Unpublishing (#92)
+
+## 0.10.1 / 2019-03-23
+
+### Bug Fixes
+
+  * Re-introduce Ruby 2.3 support and test Jekyll 3.7+ (#90)
+
+## 0.10.0 / 2019-03-21
+
+### Development Fixes
+
+  * Allow Jekyll v4 (still in alpha)
+  * Drop support for Ruby 2.3 (#86)
+
+## 0.9.0 / 2018-12-07
+
+### Minor Enhancements
+
+  * Allow additional front matter for Post (#41)
+  * Add support for collections_dir configuration (#74)
+  * Add some color to the success msg like jekyll new (#75)
+  * Generate configuration from CLI options (#76)
+  * Mirror `draft` command to current `post` command (#79)
+
+### Bug Fixes
+
+  * Display a warning when file exists (#81)
+  * Warn on error and exit gracefully (#83)
+
+### Development Fixes
+
+  * Formatting of dates and times in a DRY manner (#60)
+  * style: replace `puts` calls with `Jekyll.logger.info` (#69)
+  * style: appease Rubocop (#71)
+  * style: rubocop-jekyll 0.3 (#80)
+
+## 0.8.0 / 2018-03-24
+
+### Minor Enhancements
+
+  * Auto open newly generated files in selected editor (#64)
+
+## 0.7.0 / 2018-02-06
+
+### Development Fixes
+
+  * Add Rubocop autorrect offenses (#57)
+  * Test against Ruby 2.5 (#56)
+
+### Minor Enhancements
+
+  * Check if a file should be overwritten when publishing or unpublishing a post (#59)
+
+## 0.6.0 / 2017-11-14
+
+### Development Fixes
+
+  * Modernize Travis config (#53)
+  * Define path with __dir__ (#51)
+  * Inherit Jekyll&#39;s rubocop config for consistency (#52)
+  * Execute FileInfo tests in source_dir, Fix tests (#46)
+
+### Minor Enhancements
+
+  * Add date to front matter when publish (#54)
+
+## 0.5.0 / 2016-10-11
+
+  * Allow Jekyll Source Directory (#42)
+  * Ensure colons do not break titles (#39)
+  * Require Jekyll 3 or higher (#40)
+
+## 0.4.1 / 2015-12-30
+
+  * Change Jekyll dependency to a runtime dependency to enforce v2.5.0 or greater
+
+## 0.4.0 / 2015-12-30
+
+  * Depend on jekyll at least of version 2.5.0 (#33)
+
+## 0.3.0 / 2015-08-31
+
+  * Add the `page` command (#15)
+  * Add the `unpublish` command (#21)
+  * Commands will create directories if necessary (#17, #23)
+  * Display relative directories without ./ (#22)
+  * Change `-t`, `--type` options to `-x`, `--extension` (#25)
+
+## 0.2.1 / 2015-01-17
+
+  * Create the `_drafts` dir if it's not already there (#11)
+  * Update docs with usage examples (#10)
+
+## 0.2.0 / 2015-01-10
+
+  * Change the default file extension from `.markdown` to `.md` (#9)
+  * The `publish` command should receive a path. (#7)
+  * Rewrite the tests. (#3)
+
+## 0.1.1 / 2014-12-29
+
+  * Require the command files so it can be used via `:jekyll_plugins` (#5)
+
+## 0.1.0 / 2014-12-29
+
+  * Initial iteration of the `draft`, `post`, and `publish` commands.
+
+## 0.0.0 / 2014-05-10
+
+  * Birthday!

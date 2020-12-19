@@ -1,0 +1,9 @@
+inherit_gem:
+  jekyll: .rubocop.yml
+
+AllCops:
+  TargetRubyVersion: 2.3
+  Exclude:
+    - jekyll/**/*
+    - vendor/**/*
+    - Rakefile

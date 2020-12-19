@@ -1,0 +1,76 @@
+#!/usr/bin/env bash
+set -e
+ulimit -t 1200
+
+function checkFailedBuild {
+  if [[ $? != 0 ]]; then
+    echo "Build failed"
+    exit 1
+  fi
+}
+
+trap checkFailedBuild Exit
+
+export BUNDLE_GEMFILE="$(pwd)/Gemfile"
+bundle update
+
+NUMBER_OF_RUNS=3
+RESULTS="$(pwd)/results.csv"
+if [[ ! -s $RESULTS ]]; then
+	echo "Jekyll version, user time in seconds, site" > $RESULTS
+fi
+
+if [[ -n $PR ]]; then
+	VERSION="#$PR"
+elif [[ -n $BRANCH ]]; then
+	VERSION="$BRANCH"
+elif [[ -n $REF ]]; then
+	VERSION="$REF"
+else
+	VERSION="master"
+fi
+
+if command -v gtime; then
+	TIME=$(which gtime)
+else
+	TIME=$(which time)
+fi
+
+# Create tmp/ directory
+TMPDIR="$(pwd)/sites"
+if [[ -d $TMPDIR ]]; then
+	rm -rf "$TMPDIR"
+fi
+mkdir -p "$TMPDIR/source"
+mkdir -p "$TMPDIR/destination"
+
+# Flush SASS cache
+if [[ -d "$(pwd)/.sass-cache" ]]; then
+	rm -rf "$(pwd)/.sass-cache"
+fi
+
+# Create a directory for flamegraphs
+if [[ -n $FLAMEGRAPH ]]; then
+	mkdir -p "docs/$REF"
+fi
+
+for SITE in $(cat "site-list"); do
+	echo "
+________________________________________________________________________________
+          Sampling: $SITE"
+	SOURCE="$TMPDIR/source/${SITE##*/}"
+	DESTINATION=${SOURCE/source/destination}
+	SVG_PATH="docs/$REF/${SITE##*/}"
+	if [[ ! -d $SOURCE ]]; then
+		git clone --recurse-submodules -q "$SITE" "$SOURCE"
+	fi
+	for ((i=0; i<NUMBER_OF_RUNS; ++i)); do
+		"$TIME" -ao "$RESULTS" -f"$VERSION,%U,$SITE" \
+			bundle exec jekyll build -s "$SOURCE" -d "$DESTINATION" --trace
+	done
+
+	if [[ -n $FLAMEGRAPH ]]; then
+		rbspy record --file "$SVG_PATH" -- bundle exec jekyll build -s "$SOURCE" -d "$DESTINATION"
+		mv "$SVG_PATH" "$SVG_PATH.svg"
+	fi
+done

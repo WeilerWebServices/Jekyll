@@ -1,0 +1,14 @@
+---
+layout: null
+---
+
+{
+    "plugins": [{% for plugin in site.plugins %}
+    {
+        "title":       "{{ plugin.title }}",
+        "description": "{{ plugin.description | strip_newlines }}",
+        "author":      "{{ plugin.author }}",
+        "repository":  "{{ plugin.repository }}"
+    }{% unless forloop.last %},{% endunless %}{% endfor %}
+    ]
+}

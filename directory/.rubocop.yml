@@ -1,0 +1,16 @@
+inherit_gem:
+  jekyll: .rubocop.yml
+
+Style/Documentation:
+  Enabled: false
+
+Style/FileName:
+  Enabled: false
+
+Jekyll/NoPutsAllowed:
+  Exclude:
+    - script/scan
+
+AllCops:
+  Exclude:
+    - vendor/**/*

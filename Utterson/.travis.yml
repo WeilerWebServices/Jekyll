@@ -1,0 +1,21 @@
+language: ruby
+rvm: 2.4
+cache: bundler
+
+branches:
+  only:
+  - master
+
+before_install:
+  - gem update --system
+  - gem install bundler
+
+before_script:
+  - bundle update
+
+matrix:
+  include:
+  - name: Rubocop
+    script: bundle exec rubocop -D
+  - name: bench
+    script: ./bench

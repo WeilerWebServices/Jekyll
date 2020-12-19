@@ -1,0 +1,13 @@
+inherit_from: .rubocop_todo.yml
+
+require: rubocop-jekyll
+inherit_gem:
+  rubocop-jekyll: .rubocop.yml
+
+AllCops:
+  TargetRubyVersion: 2.3
+  Include:
+    - lib/**/*.rb
+
+  Exclude:
+    - vendor/**/*
